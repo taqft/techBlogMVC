@@ -15,9 +15,5 @@ router.post('/login', login);
 
 router.route('/:userId')
 	.get(getUserById);
-// /api/users/:userId
-// router.route('/:userId')
-// 	.delete(deleteUserById)
-// 	.get(getUserById)
-// 	.put(updateUserById)
+
 module.exports = router;
