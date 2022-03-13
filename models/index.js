@@ -1,11 +1,11 @@
-const Todo = require('./Todo');
+const Blog = require('./Blog');
 const User = require('./User');
 
-User.hasMany(Todo, {
+User.hasMany(Blog, {
     foreignKey: 'userId'
 })
 
 module.exports = {
-    Todo, 
+    Blog, 
     User,
 }
