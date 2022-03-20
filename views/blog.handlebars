@@ -1,0 +1,20 @@
+{{!-- User Dashboard --}}
+<h1>Welcome {{user.username}}</h1>
+<form>
+  <div class="mb-3">
+    <label for="titleField" class="form-label">Please Enter a Blog Title</label>
+    <input type="text" class="form-control" id="titleField" aria-describedby="blogTitle">
+    <label for="contentField" class="form-label">Please enter blog content</label>
+    <textarea class="form-control" id="contentField" aria-describedby="blogContent"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" id="addBlogBtn">Submit</button>
+</form>
+<ul class="list-group">
+  {{#each userBlog as |blog| }}
+    {{#if blog.completed}}
+      <li class="list-group-item list-group-item-primary">{{blog.task}}</li>
+    {{else}}
+      <li class="list-group-item list-group-item-danger">{{blog.task}}</li>
+    {{/if}}
+  {{/each}}
+</ul>

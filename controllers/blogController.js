@@ -2,6 +2,9 @@ const { Blog } = require('../models');
 
 module.exports = {
     getAllBlogs: async (req, res) => {
+
+        // console.log(req.session);
+        
         if (!req.session.loggedIn) {
             return res.redirect('/login');
         }
@@ -12,6 +15,8 @@ module.exports = {
                 }
             });
 
+            console.log(userBlogData);
+
             res.render('blog', {
                 userBlogData: userBlogData.map(userBlog => userBlog.get({ plain: true })),
             });
@@ -19,4 +24,13 @@ module.exports = {
             res.json(e);
         }
     },
+
+    createBlog: async (req, res) => {
+        if (!req.session.loggedIn) {
+            return res.redirect('/login');
+        }
+        await Blog.create({
+            
+        })
+    }
 }

@@ -1,11 +1,11 @@
-const Blog = require('./Blog');
-const User = require('./User');
+const Blog = require("./Blog");
+const User = require("./User");
 
 User.hasMany(Blog, {
-    foreignKey: 'userId'
-})
+  foreignKey: "userId",
+});
 
 module.exports = {
-    Blog, 
-    User,
-}
+  Blog,
+  User,
+};

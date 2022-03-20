@@ -18,6 +18,9 @@ module.exports = {
 			res.json(e);
 		}
 	},
+
+
+
 //	getting users
 	renderHomePage: async (req, res) => {
 		res.render('homepage');
@@ -41,6 +44,7 @@ module.exports = {
 			res.json(e);
 		}
 	},
+	
 	login: async (req, res) => {
 		console.log(req.body);
 		try {
@@ -58,6 +62,7 @@ module.exports = {
 				console.log('im hit', 75);
 				req.session.save(() => {
 					req.session.user = userFound;
+					req.session.loggedIn = true;
 					res.json({ success: true });
 				});
 			}
