@@ -52,14 +52,14 @@ module.exports = {
 			const userData = await User.findOne({ email: req.body.email });
 			const userFound = userData.get({ plain: true });
 
-			console.log(userFound);
+			// console.log(userFound);
 			//	check if the password from the form is the same password as the user found
 			//	with the given email
 			//	if that is true, save the user found in req.session.user
-			console.log(userFound.password, 72);
-			console.log(req.body.password, 73);
+			// console.log(userFound.password, 72);
+			// console.log(req.body.password, 73);
 			if (userFound.password === req.body.password) {
-				console.log('im hit', 75);
+				// console.log('im hit', 75);
 				req.session.save(() => {
 					req.session.user = userFound;
 					req.session.loggedIn = true;
@@ -112,4 +112,4 @@ module.exports = {
 			res.send({ status: true });
 		})
 	},
-}
+};

@@ -5,7 +5,9 @@ const {
 	login,
 	signupHandler,
 } = require('../../../controllers/userController');
+
 // /api/users
+
 router.route('/')
 	.post(createUser);
 
