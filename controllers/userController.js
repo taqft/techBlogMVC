@@ -49,23 +49,28 @@ module.exports = {
 		console.log(req.body);
 		try {
 			//	first find the user with the given email address
-			const userData = await User.findOne({ email: req.body.email });
+			const userData = await User.findOne({where: { email: req.body.email }});
 			const userFound = userData.get({ plain: true });
 
+			if (!userFound) {
+				res.status(401).send({message: 'Invalid credentials!'});
+			}
+			
 			// console.log(userFound);
 			//	check if the password from the form is the same password as the user found
 			//	with the given email
 			//	if that is true, save the user found in req.session.user
 			// console.log(userFound.password, 72);
 			// console.log(req.body.password, 73);
-			if (userFound.password === req.body.password) {
+			if (userFound.password !== req.body.password) {
 				// console.log('im hit', 75);
-				req.session.save(() => {
-					req.session.user = userFound;
-					req.session.loggedIn = true;
-					res.json({ success: true });
-				});
+				res.status(401).send({message: 'Invalid credentials!'});
 			}
+			req.session.save(() => {
+				req.session.user = userFound;
+				req.session.loggedIn = true;
+				res.redirect('/blog');
+			});
 		} catch (e) {
 			console.log(e);
 			res.json(e);
