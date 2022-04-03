@@ -27,7 +27,8 @@ module.exports = {
 
     createBlog: async (req, res) => {
         if (!req.session.loggedIn) {
-            return res.redirect('/login');
+            return res.redirect('/blog');
+            
         }
         await Blog.create({
             
