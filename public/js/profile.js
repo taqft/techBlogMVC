@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  const titleField = $('#titleField');
-  const contentField = $('#contentField');
+  const titleField = $('#blog-title');
+  const contentField = $('#blog-content');
   const addBlogBtn = $('#addBlogBtn');
 
   addBlogBtn.on('click', async function (event) {

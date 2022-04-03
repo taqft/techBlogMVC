@@ -14,7 +14,7 @@ $(document).ready(function () {
       password: passwordField.val().trim(),
     });
 
-    window.location.href = '/blog';
+    window.location.href = '/profile';
   });
 
   logoutBtn.on('click', async function () {

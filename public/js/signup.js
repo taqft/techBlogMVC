@@ -11,5 +11,6 @@ $(document).ready(function () {
       username: usernameField.val(),
       password: passwordField.val(),
     });
+    window.location.href = '/profile';
   });
 });

@@ -14,9 +14,16 @@ Blog.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    contents: {
+    content: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.UUID,
+      references: {
+        model: "user",
+        key: "id",
+      },
     },
   },
   {

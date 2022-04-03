@@ -1,18 +1,15 @@
 {{!-- Homepage starts here --}}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/signup">Sign up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Sign in</a>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="btn btn-secondary" id="logout">Logout</button>
-        </li>
-      </ul>
+  {{#if blogs.length}}
+  <div class="col-md-6 blog-list">
+    <h3>Current Blogs:</h3>
+
+    {{#each blogs as |blog|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
+      </div>
+      <p>{{blog.content}}</p>
     </div>
+    {{/each}}
   </div>
-</nav>
+  {{/if}}

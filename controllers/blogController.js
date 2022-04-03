@@ -27,11 +27,17 @@ module.exports = {
 
     createBlog: async (req, res) => {
         if (!req.session.loggedIn) {
-            return res.redirect('/blog');
+            return res.redirect('/');
             
         }
-        await Blog.create({
-            
-        })
+        try {
+            const newBlog = await Blog.create({
+                ...req.body,
+                user_id: req.session.user_id,
+            });
+            res.status(200).json(newBlog);
+        } catch (e) {
+            res.status(400).json(e)
+        }
     }
 }
