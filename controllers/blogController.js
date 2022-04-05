@@ -39,5 +39,22 @@ module.exports = {
         } catch (e) {
             res.status(400).json(e)
         }
+    },
+
+    deleteBlog: async (req, res) => {
+        if(!req.session.loggedIn){
+            return res.redirect('/');
+        }
+        try {
+            const userBlogData = await Blog.destroy({
+                where: {
+                    id: req.params.id,
+                    user_id: req.session.user_id,
+                },
+            });
+            res.status(200).json(userBlogData);
+        } catch (e) {
+            res.status(400).json(e)
+        }
     }
 }
