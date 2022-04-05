@@ -41,6 +41,21 @@ module.exports = {
         }
     },
 
+    editBlog: async (req, res) => {
+        if(!req.session.loggedIn) {
+            return res.redirect('/');
+        }
+        try {
+            const editBlog = await Blog.edit({
+                ...req.body,
+                user_id: req.session.user_id,
+            });
+            res.status(200).json(editBlog);
+        } catch (e) {
+            res.status(400).json(e);
+        }
+    },
+
     deleteBlog: async (req, res) => {
         if(!req.session.loggedIn){
             return res.redirect('/');
