@@ -2,7 +2,7 @@ $(document).ready(function () {
   const titleField = $('#blog-title');
   const contentField = $('#blog-content');
   const addBlogBtn = $('#addBlogBtn');
-  const deleteBlogBtn = $('#deleteBlogBtn');
+  const deleteBlogBtn = $('.deleteBlogBtn');
 
   addBlogBtn.on('click', async function (event) {
     event.preventDefault();
@@ -14,11 +14,14 @@ $(document).ready(function () {
   });
 
   deleteBlogBtn.on('click', async function (event) {
-    console.log('Delete');
-    await $.delete('/api/blog', {
-      title: titleField.val(),
-      content: contentField.val(),
-    });
-    window.location.reload();
+    const id = event.target.getAttribute('data-id');
+    await $.ajax({
+      url: `/api/blog/${id}`,
+      type: 'DELETE',
+      success: function(response) {
+        //...
+        window.location.reload();
+      }
+   });;
   });
 });

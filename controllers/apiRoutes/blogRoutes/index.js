@@ -6,7 +6,7 @@ const {
  } = require('../../../controllers/blogController');
 
 router.post('/', createBlog);
-router.delete('/', deleteBlog);
+router.delete('/:id', deleteBlog);
 router.patch('/', editBlog);
 
 module.exports = router;
