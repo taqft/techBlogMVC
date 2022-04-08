@@ -15,9 +15,7 @@ $(document).ready(function () {
 
   deleteBlogBtn.on('click', async function (event) {
     console.log('Delete');
-    await $.delete('/api/blog', {
-      title: titleField.val(),
-      content: contentField.val(),
+    await $.delete('/api/blog/:id', {
     });
     window.location.reload();
   });
