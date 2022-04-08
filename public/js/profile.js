@@ -14,6 +14,7 @@ $(document).ready(function () {
   });
 
   deleteBlogBtn.on('click', async function (event) {
+
     const id = event.target.getAttribute('data-id');
     await $.ajax({
       url: `/api/blog/${id}`,
