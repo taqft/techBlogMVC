@@ -12,7 +12,10 @@ module.exports = {
             const userBlogData = await Blog.findAll({
                 where:{
                     userId: req.session.user.id,
-                }
+                },
+                order: [
+                    ["createdAt", "DESC"]
+                ]
             });
 
             console.log(userBlogData);
