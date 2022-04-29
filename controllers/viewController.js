@@ -43,14 +43,23 @@ module.exports = {
               attributes: { exclude: ['password'] },
               include: [{ model: Blog }],
           });
+
+          console.log(userData);
+
+          if (!userData) {
+            return res.redirect('back');
+          }
           
           const user = userData.get({ plain: true })
 
           console.log(user);
-          res.render('profile', {
+
+          if (user) {
+            res.render('profile', {
               ...user,
               loggedIn: req.session.loggedIn,
-          });
+            });
+          } 
       } catch (e) {
           console.log(e);
           res.status(500).json(e)

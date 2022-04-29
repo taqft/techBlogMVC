@@ -5,7 +5,11 @@ const {
 module.exports = {
 
 	createUser: async (req, res) => {
-		const { username, email, password } = req.body;
+		const {
+			username,
+			email,
+			password
+		} = req.body;
 		if (!username || !email || !password) {
 			return res.status(400).json({
 				error: 'You must provide a username, email, and password'
@@ -81,18 +85,20 @@ module.exports = {
 				password,
 			});
 
+			console.log(createdUser);
 
 			req.session.save(() => {
 				req.session.loggedIn = true;
 				req.session.user = createdUser;
 				req.session.user_id = createdUser.id;
-				res.redirect('/profile');
+				res.json({
+					success: true
+				});
 			});
 		} catch (e) {
 			res.json(e);
 		}
 	},
-
 
 	logout: (req, res) => {
 		req.session.destroy(() => {
