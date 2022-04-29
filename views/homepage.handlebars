@@ -4,16 +4,8 @@
   <div class="col-sm-6 blog-list mx-auto">
   <h3>Current Blogs:</h3>
 
-    {{#each blogs as |blog|}}
-    <div class="card">
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/blog/{{blog.id}}">{{blog.title}}</a></h4>
-      </div>
-      <p>{{blog.content}}</p>
-    </div>
-    </div>
-    {{/each}}
+    {{> allblogs }}
+
   </div>
   
   {{/if}}

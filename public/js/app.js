@@ -7,8 +7,6 @@ $(document).ready(function () {
   signinForm.on('submit', async (event) => {
     event.preventDefault();
 
-    console.log('Hello');
-
     await $.post('/api/users/login', {
       email: emailField.val().trim(),
       password: passwordField.val().trim(),

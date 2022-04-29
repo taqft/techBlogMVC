@@ -12,7 +12,10 @@ module.exports = {
             const userBlogData = await Blog.findAll({
                 where:{
                     userId: req.session.user.id,
-                }
+                },
+                order: [
+                    ["createdAt", "DESC"]
+                ]
             });
 
             console.log(userBlogData);
@@ -27,7 +30,7 @@ module.exports = {
 
     createBlog: async (req, res) => {
         if (!req.session.loggedIn) {
-            return res.redirect('/');
+            return res.redirect('/login');
             
         }
         try {
