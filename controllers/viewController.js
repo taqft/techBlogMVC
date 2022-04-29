@@ -15,7 +15,7 @@ module.exports = {
       console.log(blogs);
       res.render("homepage", {
         blogs,
-        logged_in: req.session.logged_in,
+        loggedIn: req.session.loggedIn,
       });
     } catch (e) {
       console.log(e);
@@ -49,7 +49,7 @@ module.exports = {
           console.log(user);
           res.render('profile', {
               ...user,
-              logged_in: true
+              loggedIn: req.session.loggedIn,
           });
       } catch (e) {
           console.log(e);
