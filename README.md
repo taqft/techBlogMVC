@@ -1,122 +1,125 @@
-# 14 Model-View-Controller (MVC): Tech Blog
+<div id="top"></div>
+<!--
+*** Credit to Othneil Drew's Best-README-Template as the base
+*** for this template and concept/layout. The following is an iteration
+*** from that version, and contains similar structure, with some improvements
+*** to allow for easy automation of the README generation process.
+*** Check it out: https://github.com/othneildrew/Best-README-Template/
+*** NOTE: This template assumes there is a short project demo named "demo.gif" and a "logo.png"
+*** saved in the ./assets/images/ folder within your repositiory. Adjust these as needed.
+-->
 
-## Your Task
+<!-- PROJECT SHIELDS -->
+<!--
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![License][license-shield]][license-url]
 
-Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
 
-Your task this week is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/RickyRicer/techBlogMVC">
+    <img src="assets/images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-## User Story
+<!-- TODO: Rename - Unique -->
+<h3 align="center">Tech Blog</h3>
 
-```md
-AS A developer who writes about tech
-I WANT a CMS-style blog site
-SO THAT I can publish articles, blog posts, and my thoughts and opinions
-```
+  <p align="center">
+    Post, follow, and comment on the Tech Blog.
+    <br />
+    <a href="https://www.google.com/">View Demo</a>
+    ·
+    <a href="https://github.com/RickyRicer/techBlogMVC/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/RickyRicer/techBlogMVC/issues">Request Feature</a>
+  </p>
+</div>
 
-## Acceptance Criteria
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-```md
-GIVEN a CMS-style blog site
-WHEN I visit the site for the first time
-THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
-WHEN I click on the homepage option
-THEN I am taken to the homepage
-WHEN I click on any other links in the navigation
-THEN I am prompted to either sign up or sign in
-WHEN I choose to sign up
-THEN I am prompted to create a username and password
-WHEN I click on the sign-up button
-THEN my user credentials are saved and I am logged into the site
-WHEN I revisit the site at a later time and choose to sign in
-THEN I am prompted to enter my username and password
-WHEN I am signed in to the site
-THEN I see navigation links for the homepage, the dashboard, and the option to log out
-WHEN I click on the homepage option in the navigation
-THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
-WHEN I click on an existing blog post
-THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
-WHEN I enter a comment and click on the submit button while signed in
-THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
-WHEN I click on the dashboard option in the navigation
-THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
-WHEN I click on the button to add a new blog post
-THEN I am prompted to enter both a title and contents for my blog post
-WHEN I click on the button to create a new blog post
-THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-WHEN I click on one of my existing posts in the dashboard
-THEN I am able to delete or update my post and taken back to an updated dashboard
-WHEN I click on the logout option in the navigation
-THEN I am signed out of the site
-WHEN I am idle on the site for more than a set time
-THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
-```
+* [Description](#description)
+* [License](#license)
+* [Contributing](#contributing)
+* [Questions](#questions)
+* [Demo](#demo)
 
-## Mock-Up
+<!-- DESCRIPTION -->
+## Description
 
-The following animation demonstrates the application functionality:
+* Built with Node, Express, Handlebars and Sequelize, this app allows you to contribute, follow, and comment on blog posts. We worked on this for the understanding of Model-View-Controller (MVC), and to serve as a base for future improvements and features to make our lives easier.
 
-![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./Assets/14-mvc-homework-demo-01.gif) 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-## Getting Started
+<!-- LICENSE -->
+## License
 
-Your application’s folder structure must follow the Model-View-Controller paradigm. You’ll need to use the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views, use the [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect to a MySQL database for your Models, and create an Express.js API for your Controllers.
+* This application is covered under the MIT license.
 
-You’ll also need the [dotenv package](https://www.npmjs.com/package/dotenv) to use environment variables, the [bcrypt package](https://www.npmjs.com/package/bcrypt) to hash passwords, and the [express-session](https://www.npmjs.com/package/express-session) and [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) packages to add authentication.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-**Note**: The [express-session](https://www.npmjs.com/package/express-session) package stores the session data on the client in a cookie. When you are idle on the site for more than a set time, the cookie will expire and you will be required to log in again to start a new session. This is the default behavior and you do not have to do anything to your application other than implement the npm package.
+<!-- CONTRIBUTING -->
+## Contributing
 
-## Grading Requirements
+Any contributions you make are greatly appreciated.
 
-This homework is graded based on the following criteria:
+Guidelines: Fork this repo, and submit a PR with detailed notes!
 
-### Technical Acceptance Criteria: 40%
+If you have a suggestion that would make this better, please fork the repo and create a pull request.
+You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star if you liked it!
 
-* Satisfies all of the preceding acceptance criteria plus the following:
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-    * Application’s folder structure follows the Model-View-Controller paradigm.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-    * Uses the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views.
+<!-- QUESTIONS -->
+## Questions
 
-    * Application must be deployed to Heroku.
+* Have questions?
+* Reach out to us: 
+* https://github.com/RickyRicer/
+* https://github.com/theresaqueryforthat/
+* [rick.ansay@gmail.com](mailto:ben.koenig512@outlook.com "Rick's contact Email")
+* [ben.koenig512@outlook.com](mailto:ben.koenig512@outlook.com "Ben's contact Email")
 
-### Deployment: 32%
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-* Application deployed at live URL.
+<!-- PROJECT EXAMPLE -->
+## Demo
 
-* Application loads with no errors.
+[Project Demo][product-demo-url]
 
-* Application GitHub URL submitted.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-* GitHub repository contains application code.
 
-### Application Quality: 15%
 
-* User experience is intuitive and easy to navigate.
-
-* User interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the homework instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/RickyRicer/techBlogMVC.svg?style=for-the-badge
+[contributors-url]: https://github.com/RickyRicer/techBlogMVC/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/RickyRicer/techBlogMVC.svg?style=for-the-badge
+[forks-url]: https://github.com/RickyRicer/techBlogMVC/network/members
+[stars-shield]: https://img.shields.io/github/stars/RickyRicer/techBlogMVC.svg?style=for-the-badge
+[stars-url]: https://github.com/RickyRicer/techBlogMVC/stargazers
+[issues-shield]: https://img.shields.io/github/issues/RickyRicer/techBlogMVC.svg?style=for-the-badge
+[issues-url]: https://github.com/RickyRicer/techBlogMVC/issues
+[license-shield]: https://img.shields.io/github/license/RickyRicer/techBlogMVC.svg?style=for-the-badge&cacheSeconds=3600
+[license-url]: https://github.com/RickyRicer/techBlogMVC/blob/main/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[product-screenshot]: assets/images/demo.gif
+[portfolio-shield]: https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white
+[product-demo-url]: https://www.google.com/

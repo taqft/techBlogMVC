@@ -1,7 +1,4 @@
-const {
-	User,
-	Blog,
-} = require('../models');
+const { User, Blog } = require('../models');
 module.exports = {
 	createUser: async (req, res) => {
 		const { username, email, password } = req.body;
@@ -20,17 +17,14 @@ module.exports = {
 		}
 	},
 
-
-
-
 	login: async (req, res) => {
-		console.log(req.body);
+		// console.log(req.body);
 		try {
 			//	first find the user with the given email address
 			const userData = await User.findOne({where: { email: req.body.email }});
 			// const userFound = userData.get({ plain: true });
 
-			console.log(userData);
+			// console.log(userData);
 
 			if (!userData) {
 				return res.status(401).send({message: 'Invalid credentials!'});
@@ -43,13 +37,14 @@ module.exports = {
 				.status(400)
 				.json({ message: 'Incorrect email or password, please try again' });
 			  return;
-			}
-
-			req.session.save(() => {
+			} else {
+				req.session.save(() => {
+				req.session.user = userData;
 				req.session.user_id = userData.id;
 				req.session.loggedIn = true;
 				res.redirect('/profile');
 			});
+			}
 		} catch (e) {
 			console.log(e);
 			res.json(e);
@@ -69,6 +64,7 @@ module.exports = {
 
 			req.session.save(() => {
 				req.session.loggedIn = true;
+				req.session.user = createdUser;
 				req.session.user_id = createdUser.id;
 				res.redirect('/profile');
 			});
@@ -80,8 +76,9 @@ module.exports = {
 
 	logout: (req, res) => {
 		req.session.destroy(() => {
-			console.log('logout');
-			res.send({ status: true });
-		})
+			res.send({
+				status: true
+			});
+		});
 	},
 };

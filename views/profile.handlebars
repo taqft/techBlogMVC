@@ -1,24 +1,28 @@
 <div class="row">
-  <div class="col-auto">
+  <div class="col-auto mx-2 mt-3">
     <h2>Welcome, {{username}}!</h2>
   </div>
 </div>
 
-<div class="row mt-4">
+<div class="row mt-4 p-2 border border-3">
   <div class="col-md-6">
     <h3>Create a New Blog:</h3>
 
     <form class="form new-blog-form">
       <div class="form-group">
         <label for="blog-title">Blog name:</label>
+        </br>
         <input class="form-input" type="text" id="blog-title" name="blog-name" />
       </div>
       <div class="form-group">
         <label for="blog-content">Description:</label>
-        <textarea class="form-input" id="blog-content" name="blog-content"></textarea>
+        </br>
+        <textarea class="form-input long-input" id="blog-content" name="blog-content"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary" id="addBlogBtn">Create</button>
+        <hr class="divider">
+        </br>
       </div>
     </form>
   </div>

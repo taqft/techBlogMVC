@@ -1,10 +1,8 @@
 const router = require('express').Router();
-const userRoutes = require('./userRoutes');
-const blogRoutes = require('./blogRoutes');
+const userRoutes = require('./apiRoutes/userRoutes');
+const blogRoutes = require('./apiRoutes/blogRoutes');
 
 router.use('/users', userRoutes);
 router.use('/blog', blogRoutes);
 
 module.exports = router;
-
-// TODO: Update proper file structure for routes

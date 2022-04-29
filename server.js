@@ -6,9 +6,7 @@ const session = require('express-session');
 const routes = require('./controllers');
 const sequelize = require('./config');
 const helpers = require('./utils/helpers');
-const hbs = exphbs.create({
-	helpers,
-});
+const hbs = exphbs.create({ helpers });
 const app = express();
 const PORT = process.env.PORT || 3001;
 const sessionSettings = {
