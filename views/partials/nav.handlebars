@@ -1,0 +1,12 @@
+<nav class="navbar navbar-light">
+  <form class="container-fluid justify-content-start">
+    <button class="btn btn-outline-dark me-2" type="button" href="/"><a class="text-decoration-none" href="/">Home</a></button>
+    {{#unless isLoggedIn}}
+      <button class="btn btn-outline-dark me-2" type="button"><a class="text-decoration-none" href="/login">Login</a></button>
+      <button class="btn btn-outline-dark me-2" type="button"><a class="text-decoration-none" href="/signup">Signup</a></button>
+    {{else}}
+      <button class="btn btn-outline-dark me-2" type="button"><a class="text-decoration-none" href="/login">Dashboard</a></button>
+      <button class="btn btn-outline-dark me-2" type="button"><a class="text-decoration-none" id="logoutBtn" href="#">Logout</a></button>
+    {{/unless}}
+  </form>
+</nav>

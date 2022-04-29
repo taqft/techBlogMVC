@@ -1,4 +1,4 @@
-const { Blog } = require('../models');
+const { Blog, User, Comment } = require('../models');
 
 module.exports = {
     getAllBlogs: async (req, res) => {

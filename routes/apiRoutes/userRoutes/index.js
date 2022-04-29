@@ -9,6 +9,7 @@ const {
 // /api/users
 
 router.route('/')
+	.get(getUsers)
 	.post(createUser);
 
 router.post('/signup', signupHandler);
