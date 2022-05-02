@@ -1,22 +1,22 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Cagliostro', sans-serif;
-    font-weight: 400;
-    font-size: 1em;
-    line-height: 1.7;
-    background-color: rgb(80, 78, 78);
-    color: #fff;
+  font-family: 'Cagliostro', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.7;
+  background-color: rgb(80, 78, 78);
+  color: #fff;
 }
 
 hr {
-    width: 100%;
-    border: 2px solid #fff;
-    border-radius: 2px;
+  width: 100%;
+  border: 2px solid #fff;
+  border-radius: 2px;
 }
 
 .divider {
@@ -24,31 +24,31 @@ hr {
 }
 
 .header {
-    background-color: rgb(28, 27, 27);
-    background-size: cover;
-    background-position: top;
-    color: #fff;
-    padding: 10px;
+  background-color: rgb(28, 27, 27);
+  background-size: cover;
+  background-position: top;
+  color: #fff;
+  padding: 10px;
 }
 
 main {
-    color: white;
-    margin-bottom: 3rem;
+  color: white;
+  margin-bottom: 3rem;
 }
 
 footer {
-    position:fixed;
-    padding-top:3px;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(7, 7, 15);
-    text-align: center;
-    height: 3rem;
-  }
+  position: fixed;
+  padding-top: 3px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(7, 7, 15);
+  text-align: center;
+  height: 3rem;
+}
 
 .title {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 .card {
@@ -56,7 +56,7 @@ footer {
 }
 
 .card-body {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 input {
@@ -69,7 +69,7 @@ input {
 }
 
 .long-input {
-  width: 240px;
+  width: 320px;
   min-height: 120px;
 }
 
@@ -78,31 +78,45 @@ input {
 }
 
 .form-control {
-    background-color: #fff;
-    color: #000;
+  background-color: #fff;
+  color: #000;
 }
 
 .form-floating {
-    border-width:0em
+  border-width: 0em
 }
+
 .form-floating>label {
-    color: #000;
+  color: #000;
 }
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: #000;
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #000;
 }
-::-moz-placeholder { /* Firefox 19+ */
-    color: #000;
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #000;
 }
-:-ms-input-placeholder { /* IE 10+ */
-    color: #000;
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #000;
 }
-:-moz-placeholder { /* Firefox 18- */
-    color: #000;
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #000;
 }
 
 @media only screen and (max-width: 767px) {
   .divider {
     visibility: visible;
+  }
+
+  .long-input {
+    width: 100%;
+    min-height: 120px;
   }
 }

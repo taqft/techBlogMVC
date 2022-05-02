@@ -7,10 +7,10 @@ $(document).ready(function () {
   addBlogBtn.on('click', async function (event) {
     event.preventDefault();
     await $.post('/api/blog', {
-      title: titleField.val(),
-      content: contentField.val(),
+      title: titleField.val().trim(),
+      content: contentField.val().trim(),
     });
-    window.location.reload();
+    window.location.href = '/profile';
   });
 
   deleteBlogBtn.on('click', async function (event) {

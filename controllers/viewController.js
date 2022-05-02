@@ -1,18 +1,24 @@
-const { User, Blog } = require("../models");
+const {
+  User,
+  Blog
+} = require("../models");
 module.exports = {
   renderHomePage: async (req, res) => {
     try {
       const blogData = await Blog.findAll({
-        include: [
-          {
-            model: User,
-            attributes: ["username"],
-          },
-        ],
+        include: [{
+          model: User,
+          attributes: ["username"],
+        }, 
+      ],
+      order: [
+        ["createdAt", "DESC"]
+      ]
       });
 
-      const blogs = blogData.map((blog) => blog.get({ plain: true }));
-      console.log(blogs);
+      const blogs = blogData.map((blog) => blog.get({
+        plain: true
+      }));
       res.render("homepage", {
         blogs,
         loggedIn: req.session.loggedIn,
@@ -38,31 +44,37 @@ module.exports = {
   },
 
   renderProfile: async (req, res) => {
-      try {
-          const userData = await User.findByPk(req.session.user_id, {
-              attributes: { exclude: ['password'] },
-              include: [{ model: Blog }],
-          });
+    try {
+      const userData = await User.findByPk(req.session.user_id, {
+        attributes: {
+          exclude: ['password']
+        },
+        include: [{ model: Blog }],
+        order: [
+          [Blog, 'createdAt', 'DESC']
+        ]
+      });
 
-          console.log(userData);
+      // console.log(userData);
 
-          if (!userData) {
-            return res.redirect('back');
-          }
-          
-          const user = userData.get({ plain: true })
-
-          console.log(user);
-
-          if (user) {
-            res.render('profile', {
-              ...user,
-              loggedIn: req.session.loggedIn,
-            });
-          } 
-      } catch (e) {
-          console.log(e);
-          res.status(500).json(e)
+      if (!userData) {
+        return res.redirect('back');
       }
+
+      const user = userData.get({ plain: true })
+      console.log(user);
+
+      // console.log(user);
+
+      if (user) {
+        res.render('profile', {
+          ...user,
+          loggedIn: req.session.loggedIn,
+        });
+      }
+    } catch (e) {
+      console.log(e);
+      res.status(500).json(e)
+    }
   },
 };
