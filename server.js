@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
-const routes = require('./controllers');
+const routes = require('./routes');
 const sequelize = require('./config');
 const helpers = require('./utils/helpers');
 const hbs = exphbs.create({ helpers });
@@ -15,6 +15,9 @@ const sessionSettings = {
 	secret: process.env.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: false,
+	cookie: { // maxAge  2min * 60sec * 1,000ms
+		maxAge: 2 * 60 * 1000
+	}
 };
 
 app.engine('handlebars', hbs.engine);

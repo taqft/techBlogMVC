@@ -1,0 +1,17 @@
+<h3 class="mt-4">What People are saying:</h3>
+{{#if this}}
+{{#each this as |comment|}}
+<div class="card mt-2 p-3">
+  <div class="row">
+    <p class="text-dark">{{ comment.text }}</p>
+    <p class="text-muted">Submitted by {{ user.username }} on {{ comment.createdAt }}</p>
+  </div>
+</div>
+{{/each}}
+{{else}}
+<div class="card mtb-2">
+  <div class="card-body text-muted">
+    <p class="card-text"> No comments yet. Be the first person to comment on this blog!</p>
+  </div>
+</div>
+{{/if}}

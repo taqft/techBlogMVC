@@ -1,0 +1,21 @@
+<div class="container mt-2">
+  <form class="border border-2 p-2" id="targetBlog" data-id="{{ blog.id }}">
+    <div class="form-floating mb-2">
+      <input type="text" class="form-control" id="newTitle" placeholder="Enter a title..." value="{{ blog.title }}">
+      <label for="newTitle">Title</label>
+    </div>
+    <div class="form-floating mt-2">
+      <textarea class="form-control" placeholder="Write some new content here." id="newContent"
+        style="height: 200px">{{ blog.content }}</textarea>
+      <label for="newContent">Edit Blog</label>
+    </div>
+    <div class="pt-3 text-center">
+
+      <button id="editBlogBtn" class="btn btn-lg btn-primary m-1">Update This Blog</button>
+      <button class="btn btn-lg btn-danger m-1"><a class="text-decoration-none text-white" href="/profile">Go Back</a></button>
+
+    </div>
+
+  </form>
+</div>
+<script src="/js/blog.js"></script>

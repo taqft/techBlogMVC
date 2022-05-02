@@ -1,12 +1,23 @@
 const router = require('express').Router();
 const { 
     createBlog,
-    deleteBlog,
+    getAllBlogs,
+    getBlogById,
+    editBlogView,
     editBlog,
+    deleteBlog
  } = require('../../../controllers/blogController');
 
-router.post('/', createBlog);
-router.delete('/:id', deleteBlog);
-router.patch('/', editBlog);
+router.route('/')
+    .post(createBlog)
+    .get(getAllBlogs)
+
+router.route('/edit/:blogId')
+    .get(editBlogView)
+
+router.route('/:blogId')
+    .get(getBlogById)
+    .put(editBlog)
+    .delete(deleteBlog);
 
 module.exports = router;

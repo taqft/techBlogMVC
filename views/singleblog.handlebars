@@ -1,0 +1,29 @@
+<div class="col-sm-6 blog-list mx-auto">
+  <h3>Follow the Conversation:</h3>
+  <div class="container mb-4">
+    <div class="card mt-2 p-3">
+      <div class="row">
+        <div class="col-md-8">
+          <h4><a class="text-decoration-underline" id="targetBlog" data-id="{{ blog.id }}" href="/blog/{{ blog.id }}">{{ blog.title
+              }}</a></h4>
+        </div>
+        <p class="text-dark">{{ blog.content }}</p>
+        <p class="text-muted">Submitted by {{ blog.user.username }} on {{ blog.createdAt }}</p>
+      </div>
+    </div>
+    {{#if loggedIn }}
+    <div class="container mt-4">
+      <form>
+        <div class="form-floating mt-2">
+          <textarea class="form-control" placeholder="About that..." id="commentField" style="height: 220px"></textarea>
+          <label for="body" class="text-muted">Post a comment</label>
+        </div>
+        <button type="submit" id="commentBtn" class="btn btn-dark mt-2">Add a Comment</button>
+        <div id="error" class="error bg-danger text-white mt-1 text-center"></div>
+      </form>
+    </div>
+    {{/if}}
+    {{> allcomments blog.comments }}
+  </div>
+</div>
+<script src="/js/blog.js"></script>

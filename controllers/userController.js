@@ -38,7 +38,7 @@ module.exports = {
 			});
 			// const userFound = userData.get({ plain: true });
 
-			console.log(userData);
+			// console.log(userData);
 
 			if (!userData) {
 				return res.status(401).send({
@@ -60,9 +60,7 @@ module.exports = {
 					req.session.loggedIn = true;
 					req.session.user = userData;
 					req.session.user_id = userData.id;
-					res.json({
-						success: true
-					});
+					res.json({ success: true });
 				});
 			}
 		} catch (e) {
@@ -85,15 +83,13 @@ module.exports = {
 				password,
 			});
 
-			console.log(createdUser);
+			// console.log(createdUser);
 
 			req.session.save(() => {
 				req.session.loggedIn = true;
 				req.session.user = createdUser;
 				req.session.user_id = createdUser.id;
-				res.json({
-					success: true
-				});
+				res.json({ success: true });
 			});
 		} catch (e) {
 			res.json(e);
@@ -102,10 +98,8 @@ module.exports = {
 
 	logout: (req, res) => {
 		req.session.destroy(() => {
-			console.log('logout');
-			res.send({
-				status: true
-			});
+			console.log('logout request sent');
+			res.send({ status: true });
 		})
 	},
 };

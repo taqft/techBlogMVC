@@ -1,11 +1,12 @@
 {{!-- Homepage starts here --}}
-  {{#if blogs.length}}
-  
-  <div class="col-sm-6 blog-list mx-auto">
-  <h3>Current Blogs:</h3>
+{{#if blogs.length}}
 
-    {{> allblogs }}
+<div class="col-sm-6 blog-list mx-auto">
+  <h3>Most Recent Blogs:</h3>
 
-  </div>
-  
-  {{/if}}
+  {{> allblogs }}
+
+  <button class="btn btn-outline-dark p-1 mt-3"><a class="text-decoration-none text-white" href="#top">Back to top</a></button>
+</div>
+
+{{/if}}
