@@ -7,12 +7,11 @@ $(document).ready(function () {
   const errorText = $('#error');
   const newTitle = $('#newTitle');
   const newContent = $('#newContent');
-  
-  console.log(newTitle, newContent);
-  console.log(blog_id);
+  let error = '';
 
   commentBtn.on('click', async (event) => {
     event.preventDefault();
+    event.target.innerText = `Loading...`;
     const text = commentField.val().trim();
     if (text) {
       await $.post('/api/comment', {
@@ -31,6 +30,7 @@ $(document).ready(function () {
 
   editBlogBtn.on('click', async function (event) {
     event.preventDefault();
+    event.target.innerText = `Loading...`;
     await $.ajax({
       url: `/api/blog/${blog_id}`,
       method: 'PUT',
@@ -41,7 +41,14 @@ $(document).ready(function () {
       headers: {
         'Content-Type': 'application/json'
       },
+      success: function (response) {
+        alert(`Blog updated!`)
+        window.location.reload();
+      },
+      error: function (jqXHR) {
+        error = jqXHR.statusText;
+        console.log(error);
+      }
     });
-    window.location.reload();
   });
 });

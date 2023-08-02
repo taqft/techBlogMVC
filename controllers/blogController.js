@@ -35,7 +35,6 @@ module.exports = {
     },
 
     createBlog: async (req, res) => {
-        // console.log('creating blog');
         const {
             title,
             content
@@ -50,7 +49,6 @@ module.exports = {
                 content,
                 user_id: req.session.user_id
             });
-            // console.log('new blog created');
             res.json({
                 newBlog
             });

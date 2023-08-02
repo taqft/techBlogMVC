@@ -4,8 +4,8 @@ $(document).ready(function () {
   const passwordField = $('#passwordField');
   const signupBtn = $('#signupBtn');
 
-  signupBtn.on('click', async function (e) {
-    e.preventDefault();
+  signupBtn.on('click', async function (event) {
+    event.preventDefault();
     await $.post('/api/users/signup', {
       email: emailField.val().trim(),
       username: usernameField.val().trim(),
