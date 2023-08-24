@@ -92,9 +92,9 @@ Don't forget to give the project a star if you liked it!
 * Have questions?
 * Reach out to us: 
 * https://github.com/RickyRicer/
-* https://github.com/theresaqueryforthat/
-* [rick.ansay@gmail.com](mailto:ben.koenig512@outlook.com "Rick's contact Email")
-* [ben.koenig512@outlook.com](mailto:ben.koenig512@outlook.com "Ben's contact Email")
+* https://github.com/taqft/
+* [rick.ansay@gmail.com](mailto:rick.ansay@gmail.com "Rick's contact Email")
+* [ben.koenig@live.com](mailto:ben.koenig@live.com "Ben's contact Email")
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -117,7 +117,7 @@ Don't forget to give the project a star if you liked it!
 [stars-url]: https://github.com/RickyRicer/techBlogMVC/stargazers
 [issues-shield]: https://img.shields.io/github/issues/RickyRicer/techBlogMVC.svg?style=for-the-badge
 [issues-url]: https://github.com/RickyRicer/techBlogMVC/issues
-[license-shield]: https://img.shields.io/github/license/RickyRicer/techBlogMVC.svg?style=for-the-badge&cacheSeconds=3600
+[license-shield]: https://img.shields.io/github/license/RickyRicer/techBlogMVC.svg?style=for-the-badge&cacheSeconds=9003
 [license-url]: https://github.com/RickyRicer/techBlogMVC/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [product-screenshot]: assets/images/demo.gif
