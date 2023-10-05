@@ -56,7 +56,7 @@
 <!-- DESCRIPTION -->
 ## Description
 
-* Built with Node, Express, Handlebars and Sequelize, this app allows you to contribute, follow, and comment on blog posts. We worked on this for the understanding of Model-View-Controller (MVC), and to serve as a base for future improvements and features to make our lives easier.
+* Built with Node, Express, Handlebars and Sequelize, this app allows you to contribute, follow, and comment on blog posts. We worked on this for the understanding of Model-View-Controller (MVC), and to serve as a base for future improvements and features.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
