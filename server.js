@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
+const MemoryStore = require('memorystore')(session)
 const routes = require('./routes');
 const sequelize = require('./config');
 const helpers = require('./utils/helpers');
@@ -15,9 +16,12 @@ const sessionSettings = {
 	secret: process.env.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: false,
-	cookie: { // maxAge  2min * 60sec * 1,000ms
-		maxAge: 2 * 60 * 1000
-	}
+	cookie: {
+		maxAge: 86400000 // expire after 24 hours
+	},
+	store: new MemoryStore({
+		checkPeriod: 86400000 // prune expired entries every 24h
+	}),
 };
 
 app.engine('handlebars', hbs.engine);
